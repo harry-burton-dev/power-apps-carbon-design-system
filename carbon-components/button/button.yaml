@@ -1,0 +1,29 @@
+- btn_Tertiary_sm_BtnShowcase:
+    Control: Classic/Button@2.2.0
+    Properties:
+      BorderColor: =btn_Tertiarysm.BorderColor
+      BorderThickness: =btn_Tertiarysm.BorderThickness
+      Color: =btn_Tertiarysm.Color
+      DisplayMode: =btn_Tertiarysm.DisplayMode
+      Fill: =btn_Tertiarysm.Fill
+      FocusedBorderColor: =btn_Tertiarysm.FocusedBorderColor
+      Font: =Font.'Segoe UI'
+      FontWeight: =btn_Tertiary2xl.FontWeight
+      Height: =btn_Tertiarysm.Height
+      HoverBorderColor: =btn_Tertiarysm.HoverBorderColor
+      HoverColor: =btn_Tertiarysm.HoverColor
+      HoverFill: =btn_Tertiarysm.HoverFill
+      PaddingBottom: =0
+      PaddingLeft: =btn_Tertiarysm.PaddingH
+      PaddingRight: =btn_Tertiarysm.PaddingH
+      PaddingTop: =0
+      PressedBorderColor: =btn_Tertiarysm.PressedBorderColor
+      PressedColor: =btn_Tertiarysm.PressedColor
+      PressedFill: =btn_Tertiarysm.PressedFill
+      RadiusBottomLeft: =CarbonRadius.R00
+      RadiusBottomRight: =CarbonRadius.R00
+      RadiusTopLeft: =CarbonRadius.R00
+      RadiusTopRight: =CarbonRadius.R00
+      Size: =btn_Tertiarysm.FontSize
+      Text: ="sm"
+      Width: =96
