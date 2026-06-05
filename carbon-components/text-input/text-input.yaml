@@ -1,0 +1,62 @@
+- con_Input_Field:
+    Control: GroupContainer@1.5.0
+    Variant: AutoLayout
+    Properties:
+      DropShadow: =DropShadow.None
+      FillPortions: =0
+      Height: =inp_Classic.Height + con_BottomBorder.Height
+      LayoutDirection: =LayoutDirection.Vertical
+      RadiusBottomLeft: =0
+      RadiusBottomRight: =0
+      RadiusTopLeft: =0
+      RadiusTopRight: =0
+      Width: =Parent.Width
+    Children:
+      - inp_Classic:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            AlignInContainer: =AlignInContainer.Center
+            BorderColor: =RGBA(0,0,0,0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            Color: =locInputCfg.Color
+            Default: =""
+            DisabledBorderColor: =RGBA(0,0,0,0)
+            DisabledColor: =locInputCfg.DisabledColor
+            DisabledFill: =locInputCfg.DisabledFill
+            DisplayMode: =locInputCfg.DisplayMode
+            Fill: =locInputCfg.Fill
+            FocusedBorderColor: =locInputCfg.FocusedBorderColor
+            FocusedBorderThickness: =locInputCfg.FocusedBorderThickness
+            Font: =CarbonFontFamilies.Sans
+            FontWeight: =FontWeight.Lighter
+            Height: =locInputCfg.Height
+            HintText: =If(locInputCfg.LabelLayout = "Inside", "Label text", "Placeholder text")
+            HoverBorderColor: =RGBA(0,0,0,0)
+            HoverColor: =locInputCfg.HoverColor
+            HoverFill: =locInputCfg.HoverFill
+            PaddingBottom: =0
+            PaddingLeft: =locInputCfg.PaddingH
+            PaddingRight: =locInputCfg.PaddingH
+            PaddingTop: =0
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =locInputCfg.FontSize
+            Width: =Parent.Width / 2
+      - con_BottomBorder:
+          Control: GroupContainer@1.5.0
+          Variant: AutoLayout
+          Properties:
+            AlignInContainer: =AlignInContainer.Center
+            DropShadow: =DropShadow.None
+            Fill: =locInputCfg.BorderColor
+            FillPortions: =0
+            Height: =2
+            LayoutDirection: =LayoutDirection.Horizontal
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Width: =inp_Classic.Width
