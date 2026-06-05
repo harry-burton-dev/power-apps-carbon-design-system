@@ -1,0 +1,176 @@
+CarbonBtnType := Type({
+    Appearance:          Text,
+    DisplayMode:         Text,
+    Height:              Number,
+    PaddingH:            Number,
+    FontSize:            Number,
+    FontWeight:          Text,
+    BasePaletteColor:    Color,
+    Fill:                Color,
+    HoverFill:           Color,
+    PressedFill:         Color,
+    Color:               Color,
+    HoverColor:          Color,
+    PressedColor:        Color,
+    BorderColor:         Color,
+    HoverBorderColor:    Color,
+    PressedBorderColor:  Color,
+    FocusedBorderColor:  Color,
+    BorderThickness:     Number
+});
+CarbonBtn(variant: Text, size: Text, state: Text) : CarbonBtnType =
+    With(
+        {
+            v: LookUp(CarbonBtnVariants, Variant = variant),
+            s: LookUp(CarbonBtnSizes,    Size    = size)
+        },
+        {
+            Appearance:          v.Appearance,
+            DisplayMode:         If(state = "Disabled", DisplayMode.Disabled, DisplayMode.Edit),
+            Height:              s.Height,
+            PaddingH:            s.PaddingH,
+            FontSize:            s.FontSize,
+            FontWeight:          v.FontWeight,
+            BasePaletteColor:    v.BasePaletteColor,
+            Fill:                v.Fill,
+            HoverFill:           v.HoverFill,
+            PressedFill:         v.PressedFill,
+            Color:               v.Color,
+            HoverColor:          v.HoverColor,
+            PressedColor:        v.PressedColor,
+            BorderColor:         v.BorderColor,
+            HoverBorderColor:    v.HoverBorderColor,
+            PressedBorderColor:  v.PressedBorderColor,
+            FocusedBorderColor:  v.FocusedBorderColor,
+            BorderThickness:     v.BorderThickness
+        }
+    );
+CarbonBtnVariants := Table(
+    { Variant: "Primary",
+      Appearance:          ButtonAppearance.Primary,
+      FontWeight:          CarbonFontWeight("lighter"),
+      BasePaletteColor:    ColorValue(Theme.Active.Interactive),
+      Fill:                ColorValue(Theme.Active.Background),
+      HoverFill:           ColorValue(Theme.Active.Background),
+      PressedFill:         ColorValue(Theme.Active.Background),
+      Color:               ColorValue(Theme.Active.TextPrimary),
+      HoverColor:          RGBA(255,255,255,1),
+      PressedColor:        RGBA(255,255,255,1),
+      BorderColor:         RGBA(0,0,0,0),
+      HoverBorderColor:    RGBA(0,0,0,0),
+      PressedBorderColor:  RGBA(0,0,0,0),
+      FocusedBorderColor:  ColorValue(Theme.Active.FocusBorder),
+      BorderThickness:     0 },
+    { Variant: "Secondary",
+      Appearance:          ButtonAppearance.Primary,
+      FontWeight:          CarbonFontWeight("lighter"),
+      BasePaletteColor:    ColorValue(CarbonTokens.Gray80),
+      Fill:                ColorValue(Theme.Active.Background),
+      HoverFill:           ColorValue(Theme.Active.Background),
+      PressedFill:         ColorValue(Theme.Active.Background),
+      Color:               ColorValue(Theme.Active.TextPrimary),
+      HoverColor:          RGBA(255,255,255,1),
+      PressedColor:        RGBA(255,255,255,1),
+      BorderColor:         RGBA(0,0,0,0),
+      HoverBorderColor:    RGBA(0,0,0,0),
+      PressedBorderColor:  RGBA(0,0,0,0),
+      FocusedBorderColor:  ColorValue(Theme.Active.FocusBorder),
+      BorderThickness:     0 },
+    { Variant: "Tertiary",
+      Appearance:          ButtonAppearance.Outline,
+      FontWeight:          CarbonFontWeight("lighter"),
+      BasePaletteColor:    ColorValue(Theme.Active.Interactive),
+      Fill:                ColorValue(Theme.Active.Background),
+      HoverFill:           ColorValue(Theme.Active.Interactive),
+      PressedFill:         ColorValue(Theme.Active.Interactive),
+      Color:               ColorValue(Theme.Active.Interactive),
+      HoverColor:          RGBA(255,255,255,1),
+      PressedColor:        RGBA(255,255,255,1),
+      BorderColor:         ColorValue(Theme.Active.Interactive),
+      HoverBorderColor:    ColorValue(Theme.Active.Interactive),
+      PressedBorderColor:  ColorValue(Theme.Active.Interactive),
+      FocusedBorderColor:  ColorValue(Theme.Active.FocusBorder),
+      BorderThickness:     1 },
+    { Variant: "Ghost",
+      Appearance:          ButtonAppearance.Subtle,
+      FontWeight:          CarbonFontWeight("lighter"),
+      BasePaletteColor:    ColorValue(Theme.Active.Interactive),
+      Fill:                RGBA(0,0,0,0),
+      HoverFill:           RGBA(0,0,0,0.1),
+      PressedFill:         RGBA(0,0,0,0.2),
+      Color:               ColorValue(Theme.Active.Interactive),
+      HoverColor:          ColorValue(Theme.Active.Interactive),
+      PressedColor:        ColorValue(Theme.Active.Interactive),
+      BorderColor:         RGBA(0,0,0,0),
+      HoverBorderColor:    RGBA(0,0,0,0),
+      PressedBorderColor:  RGBA(0,0,0,0),
+      FocusedBorderColor:  RGBA(0,0,0,0),
+      BorderThickness:     0 },
+    { Variant: "Danger",
+      Appearance:          ButtonAppearance.Primary,
+      FontWeight:          CarbonFontWeight("lighter"),
+      BasePaletteColor:    ColorValue(Theme.Active.Danger),
+      Fill:                ColorValue(Theme.Active.Background),
+      HoverFill:           ColorValue(Theme.Active.Background),
+      PressedFill:         ColorValue(Theme.Active.Background),
+      Color:               ColorValue(Theme.Active.TextPrimary),
+      HoverColor:          RGBA(255,255,255,1),
+      PressedColor:        RGBA(255,255,255,1),
+      BorderColor:         RGBA(0,0,0,0),
+      HoverBorderColor:    RGBA(0,0,0,0),
+      PressedBorderColor:  RGBA(0,0,0,0),
+      FocusedBorderColor:  ColorValue(Theme.Active.FocusBorder),
+      BorderThickness:     0 },
+    { Variant: "DangerTertiary",
+      Appearance:          ButtonAppearance.Outline,
+      FontWeight:          CarbonFontWeight("lighter"),
+      BasePaletteColor:    ColorValue(Theme.Active.Danger),
+      Fill:                ColorValue(Theme.Active.Background),
+      HoverFill:           ColorValue(Theme.Active.Danger),
+      PressedFill:         ColorValue(Theme.Active.Danger),
+      Color:               ColorValue(Theme.Active.Danger),
+      HoverColor:          RGBA(255,255,255,1),
+      PressedColor:        RGBA(255,255,255,1),
+      BorderColor:         ColorValue(Theme.Active.Danger),
+      HoverBorderColor:    ColorValue(Theme.Active.Danger),
+      PressedBorderColor:  ColorValue(Theme.Active.Danger),
+      FocusedBorderColor:  ColorValue(Theme.Active.FocusBorder),
+      BorderThickness:     1 }
+);
+CarbonBtnSizes := Table(
+    { Size: "sm",  Height: CarbonContainer.C02, PaddingH: CarbonSpacing.S04, FontSize: 14 },
+    { Size: "md",  Height: CarbonContainer.C03, PaddingH: CarbonSpacing.S05, FontSize: 14 },
+    { Size: "lg",  Height: CarbonContainer.C04, PaddingH: CarbonSpacing.S05, FontSize: 14 },
+    { Size: "xl",  Height: CarbonContainer.C05, PaddingH: CarbonSpacing.S06, FontSize: 16 },
+    { Size: "2xl", Height: CarbonSpacing.S11,   PaddingH: CarbonSpacing.S07, FontSize: 16 }
+);
+btn_Primary2xl:= CarbonBtn("Primary", "2xl", "Default");
+btn_Primaryxl:= CarbonBtn("Primary", "xl", "Default");
+btn_Primarysm := CarbonBtn("Primary", "sm", "Default");
+btn_Primarymd := CarbonBtn("Primary", "md", "Default");
+btn_Primarylg := CarbonBtn("Primary", "lg", "Default");
+btn_Secondarysm := CarbonBtn("Secondary", "sm", "Default");
+btn_Secondarymd := CarbonBtn("Secondary", "md", "Default");
+btn_Secondarylg := CarbonBtn("Secondary", "lg", "Default");
+btn_Secondaryxl := CarbonBtn("Secondary", "xl", "Default");
+btn_Secondary2xl := CarbonBtn("Secondary", "2xl", "Default");
+btn_Tertiarysm := CarbonBtn("Tertiary", "sm", "Default");
+btn_Tertiarymd := CarbonBtn("Tertiary", "md", "Default");
+btn_Tertiarylg := CarbonBtn("Tertiary", "lg", "Default");
+btn_Tertiaryxl := CarbonBtn("Tertiary", "xl", "Default");
+btn_Tertiary2xl := CarbonBtn("Tertiary", "2xl", "Default");
+btn_Ghostsm := CarbonBtn("Ghost", "sm", "Default");
+btn_Ghostmd := CarbonBtn("Ghost", "md", "Default");
+btn_Ghostlg := CarbonBtn("Ghost", "lg", "Default");
+btn_Ghostxl := CarbonBtn("Ghost", "xl", "Default");
+btn_Ghost2xl := CarbonBtn("Ghost", "2xl", "Default");
+btn_Dangersm := CarbonBtn("Danger", "sm", "Default");
+btn_Dangermd := CarbonBtn("Danger", "md", "Default");
+btn_Dangerlg := CarbonBtn("Danger", "lg", "Default");
+btn_Dangerxl := CarbonBtn("Danger", "xl", "Default");
+btn_Danger2xl := CarbonBtn("Danger", "2xl", "Default");
+btn_DangerTertiarysm := CarbonBtn("DangerTertiary", "sm", "Default");
+btn_DangerTertiarymd := CarbonBtn("DangerTertiary", "md", "Default");
+btn_DangerTertiarylg := CarbonBtn("DangerTertiary", "lg", "Default");
+btn_DangerTertiaryxl := CarbonBtn("DangerTertiary", "xl", "Default");
+btn_DangerTertiary2xl := CarbonBtn("DangerTertiary", "2xl", "Default");
